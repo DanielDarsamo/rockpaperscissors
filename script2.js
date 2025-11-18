@@ -1,8 +1,8 @@
-let computerScore=0;
-let humanScore=0;
+let computerScore=0; //pc score 
+let humanScore=0; // human 
 
     function getComputerChoice(choice){
-        choice=Math.floor(Math.random()*3);
+        choice=Math.floor(Math.random()*3); // in order to produce 0,1,2 
 
         switch (choice){
             case 0: return "Rock";
@@ -28,37 +28,37 @@ let humanScore=0;
         else{
             return "invalid choice bro";
         }
-    }
+    } // filter of how the user can log different ways of scissors , rock ,paper
 
         
         function playRound(humanChoice, computerChoice) {
-            console.log(`You chose: ${humanChoice}`);
-            console.log(`Computer chose: ${computerChoice}`);
+            console.log(`You chose: ${humanChoice}`); // prints the human choice 
+            console.log(`Computer chose: ${computerChoice}`); // prints the computer choice 
         
             if (humanChoice === computerChoice) {
                 humanScore++;
                 computerScore++;
                 return "It's a tie!";
-            } 
+            } // conditional for a tie 
             else if (
                 (humanChoice === "Rock" && computerChoice === "Scissors") ||
                 (humanChoice === "Paper" && computerChoice === "Rock") ||
                 (humanChoice === "Scissors" && computerChoice === "Paper")
             ) {
-                humanScore++;
+                humanScore++; // point is added to human
                 return "You win this round!";
-            } 
+            } // logic case that handles only win cases for human 
             else if (
                 (humanChoice === "Rock" && computerChoice === "Paper") ||
                 (humanChoice === "Paper" && computerChoice === "Scissors") ||
                 (humanChoice === "Scissors" && computerChoice === "Rock")
             ) {
-                computerScore++;
+                computerScore++; //point is added to pc 
                 return "You lose this round!";
-            } 
+            } // logic case that handles only lost cases for human 
             else {
                 return "Invalid choice! Round skipped.";
-            }
+            } // in case something is not entered properly  ( some mispelling too)
         }
         
         
@@ -74,11 +74,11 @@ let humanScore=0;
                 const computerSelection = getComputerChoice();
                 const result = playRound(humanSelection, computerSelection);
                 console.log(result);
-            }
+            } // loop to handle the 5 rounds of game play 
         
             console.log("Game over!");
             console.log(`Final Scores — Human: ${humanScore}, Computer: ${computerScore}`);
-        
+            // human score and computer accumulate here 
             if (humanScore > computerScore) {
                 console.log("You won the game! Well done!");
             } else if (humanScore < computerScore) {
@@ -86,5 +86,7 @@ let humanScore=0;
             } else {
                 console.log("It's a tie game!");
             }
-        }
-    playGame();
+        } // coonditional of to see who won , lost , draw 
+
+
+    playGame(); // call the function 
